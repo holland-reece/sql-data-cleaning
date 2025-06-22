@@ -54,5 +54,10 @@ FROM layoffs_staging
 )
 SELECT *
 FROM duplicate_cte
-WHERE row_num > 1;
+WHERE row_num > 1; # if row number is > 1, there may be duplicates
+
+# Look at duplicate rows in output and inspect individual cases to see if they are actually duplicates
+SELECT *
+FROM layoffs_staging
+WHERE company = 'Oda';
 

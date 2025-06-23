@@ -2,7 +2,7 @@
 
 # Holland Brown
 
-# Updated: 2025-06-22
+# Updated: 2025-06-23
 # Created: 2025-06-22
 
 # Description:
@@ -13,23 +13,23 @@
 
 # Create a database, then upload world layoffs data from CSV file
 SELECT *
-FROM world_layoffs.layoffs; # RAW data (don't edit this)
+FROM world_layoffs.tech_layoffs; # RAW data (don't edit this)
 
-# STEP 1: remove duplicates
+# STEP 1: Remove duplicates
 # STEP 2: Standardize data
 # STEP 3: NULL values and blank values
 # STEP 4: Remove unnecessary cols
 
 # Create duplicate "staging database" so we don't edit the raw data
 CREATE TABLE layoffs_staging
-LIKE layoffs;
+LIKE tech_layoffs;
 
 SELECT *
 FROM layoffs_staging;
 
 INSERT layoffs_staging
 SELECT *
-FROM layoffs;
+FROM tech_layoffs;
 
 # STEP 1: remove duplicates
 # First, use ROW_NUMBER to only show unique data
